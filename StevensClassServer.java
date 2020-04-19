@@ -1,3 +1,6 @@
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
+import java.net.InetAddress;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
@@ -25,15 +28,16 @@ public class StevensClassServer implements ClassIDs
 		return list;
     }
 
-    public static void main(String args[]) throws FileNotFoundException{
+    public static void main(String args[]) throws UnknownHostException, FileNotFoundException{
         classList = getList();
-		System.out.println(classList);
+        String addr = (Inet4Address.getLocalHost()).toString();
+		System.out.println(addr);
         try {
             StevensClassServer obj = new StevensClassServer();
             ClassIDs stub = (ClassIDs) UnicastRemoteObject.exportObject(obj, 0);
 
             // Bind the remote object's stub in the registry
-            Registry registry = LocateRegistry.getRegistry();
+            Registry registry = LocateRegistry.createRegistry(30280);
             registry.rebind("ClassIDs", stub);
 
             System.err.println("Server Setup Complete.");

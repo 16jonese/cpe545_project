@@ -1,3 +1,4 @@
+import java.net.InetAddress;
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
 import java.rmi.registry.LocateRegistry;
@@ -8,11 +9,12 @@ public class StevensClassClient {
 
     private StevensClassClient() {}
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 		if (!checkArgs(args))
 		 			return;
 	    String host = args[0];
 	    String type = args[1];
+
 		try {
 		    Registry registry = LocateRegistry.getRegistry(host);
 		    ClassIDs stub = (ClassIDs) registry.lookup("ClassIDs");
