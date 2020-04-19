@@ -12,8 +12,8 @@ public class RMIClient {
     private RMIClient() {}
 
     public static void main(String[] args) {
-		// if (!validateArgs(args))
-		// 			return;
+		if (!validateArgs(args))
+					return;
 	    String host = args[0];
 	    String prefix = args[1];
 		try {
@@ -26,25 +26,19 @@ public class RMIClient {
 		    e.printStackTrace();
 		}
     }
-	// private static boolean validateArgs(String[] args) {
-	// 	int expectedNumberOfArgs = 1;
-	// 	if (args != null && args.length >= expectedNumberOfArgs) {
-	//
-	// 		if (!new java.io.File(args[0]).exists()) {
-	// 			System.out.println("Invalid argument. File " + args[0] + " could not be found.");
-	// 		} else {
-	// 			try {
-	// 				Inet4Address.getByName(args[1]);
-	// 				return true;
-	// 			} catch (UnknownHostException e) {
-	// 				// e.printStackTrace();
-	// 				System.out.println("Invalid argument. You must provide a valid IP Address.");
-	// 			}
-	// 		}
-	// 	} else {
-	// 		System.out.println("Incorrect call. " + "Expected " + expectedNumberOfArgs + " arguments.");
-	// 	}
-	// 	System.out.println(CALL_EXAMPLE);
-	// 	return false;
-	// }
+	private static boolean validateArgs(String[] args) {
+		int expectedNumberOfArgs = 1;
+		if (args != null && args.length >= expectedNumberOfArgs) {
+			try {
+				Inet4Address.getByName(args[0]);
+				return true;
+			} catch (UnknownHostException e) {
+				System.out.println("Invalid argument. You must provide a valid IP Address.");
+			}
+		} else {
+			System.out.println("Incorrect call. " + "Expected " + expectedNumberOfArgs + " arguments.");
+		}
+		System.out.println(CALL_EXAMPLE);
+		return false;
+	}
 }
