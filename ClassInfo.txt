@@ -1,0 +1,100 @@
+CS 101
+3
+MWF
+Professor X
+CS 115
+4
+TF
+Professor Mcshea
+CS 385
+4
+MW
+Professor Jones
+CS 555
+3
+TTh
+Professor Dempster
+CS 600
+5
+MWF
+Professor Stark
+CPE 101
+2
+MF
+Professor Sullivan
+CPE 115
+3
+MTh
+Professor Dotson
+CPE 360
+4
+WF
+Professor Ackland
+CPE 545
+3
+T
+Professor Mousavi
+CPE 485
+2
+W
+Professor Lu
+EE 101
+2
+MWF
+Professor Brown
+EE 284
+3
+MW
+Professor Winston
+EE 359
+4
+MWF
+Professor Victor
+EE 489
+3
+F
+Professor Kim
+EE 550
+4
+W
+Professor Song
+HLI 101
+2
+WF
+Professor Tim
+HLI 103
+3
+MWF
+Professor Richard
+HLI 105
+3
+MF
+Professor Adams
+HLI 200
+4
+Th
+Professor Schwoyer
+HLI 300
+3
+T
+Professor Brian
+MA 120
+2
+TF
+Professor Gural
+MA 121
+2
+MW
+Professor Covert
+MA 122
+2
+WF
+Professor Walsh
+MA 123
+2
+MF
+Professor Martocci
+MA 250
+4
+MWF
+Professor Rice
