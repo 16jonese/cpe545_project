@@ -1,14 +1,3 @@
-// import java.net.MalformedURLException;
-// import java.rmi.registry.LocateRegistry;
-// import java.net.Inet4Address;
-// import java.net.UnknownHostException;
-// import java.rmi.Naming;
-// import java.rmi.RemoteException;
-// import java.rmi.server.UnicastRemoteObject;
-// import java.util.ArrayList;
-// import java.util.List;
-// import java.rmi.registry.Registry;
-
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
@@ -95,25 +84,4 @@ public class RMIServer implements Name
 		list.add("Anthony Wells");
 		return list;
 	}
-
 }
-
-// 	private static boolean validateArgs(String[] args) {
-// 		int expectedNumberOfArgs = 1;
-// 		if (args != null && args.length >= expectedNumberOfArgs){
-// 			try {
-// 			  Inet4Address.getByName(args[0]);
-// 			  return true;
-// 			} catch (UnknownHostException e) {
-// //				e.printStackTrace();
-// 				System.out.println("Invalid argument. You must provide a valid IP Address.");
-// 			}
-// 		}
-// 		else{
-// 			System.out.println("Incorrect call. "
-// 					+ "Expected " + expectedNumberOfArgs + " arguments.");
-// 		}
-// 		System.out.println(CALL_EXAMPLE);
-// 		return false;
-// 	}
-//}
