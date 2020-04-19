@@ -13,14 +13,20 @@ public class RMIClient {
 
     public static void main(String[] args) {
 		if (!validateArgs(args))
-					return;
+		 			return;
 	    String host = args[0];
 	    String prefix = args[1];
 		try {
 		    Registry registry = LocateRegistry.getRegistry(host);
-		    Name stub = (Name) registry.lookup("Name");
-		    List<String> response = stub.search(prefix);
-		    System.out.println("response: " + response);
+		    ClassIDs stub = (ClassIDs) registry.lookup("ClassIDs");
+		    List<ClassInfo> response = stub.searchClass(prefix);
+		    for(ClassInfo classes : response){
+				System.out.println("Class id: " + classes.getClassId());
+				System.out.println("Number of Credits: " + classes.getClassCredits());
+				System.out.println("Class Schedule: " + classes.getClassDays());
+				System.out.println("Professor: " + classes.getClassTeacher());
+				System.out.println();
+			}
 		} catch (Exception e) {
 		    System.err.println("Client exception: " + e.toString());
 		    e.printStackTrace();
