@@ -43,11 +43,11 @@ public class RMIServer implements INameSearch{
 		}
 
 		try {
-			final String bindName = "INameSearch";
-			final String hostname = args[0];
+			String bindName = "INameSearch";
+			String hostname = args[0];
 
 			studentNameList = getList();// InetAddress.getLocalHost().getHostAddress();
-			System.setProperty("java.rmi.server.hostname", hostname);
+			//System.setProperty("java.rmi.server.hostname", hostname);
 			System.out.println("Hostname set to: " + hostname);
 			System.out.println("Bind name set to: " + bindName);
 
