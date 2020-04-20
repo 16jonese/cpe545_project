@@ -19,25 +19,43 @@ public class StevensClassServer implements ClassIDs
 
     public List<ClassInfo> searchClass(String id) {
         id = id.toLowerCase();
-		List<ClassInfo> list = new ArrayList<>();
-		for (ClassInfo classItem : classList) {
+				List<ClassInfo> list = new ArrayList<>();
+				for (ClassInfo classItem : classList) {
 			if (classItem.getClassId().toLowerCase().startsWith(id)){
 				list.add(classItem);
 			}
 		}
 		return list;
     }
+		
+		private static ArrayList<ClassInfo> getList()throws FileNotFoundException{
+			ArrayList<ClassInfo> list = new ArrayList<>();
+			File classList = new File("ClassInfo.txt");
+			Scanner s = new Scanner(classList);
+
+			while(s.hasNext()){
+				ClassInfo newClass = new ClassInfo(s.nextLine(), Integer.parseInt(s.nextLine()), s.nextLine(), s.nextLine());
+				list.add(newClass);
+			}
+			s.close();
+			return list;
+		}
 
     public static void main(String args[]) throws UnknownHostException, FileNotFoundException{
         classList = getList();
         String addr = (Inet4Address.getLocalHost()).toString();
-		System.out.println(addr);
+				System.out.println(addr);
         try {
             StevensClassServer obj = new StevensClassServer();
             ClassIDs stub = (ClassIDs) UnicastRemoteObject.exportObject(obj, 0);
 
+<<<<<<< Updated upstream
 						//System.setProperty("java.rmi.server.hostname","192.168.56.1");
             Registry registry = LocateRegistry.createRegistry(3232);
+=======
+            // Bind the remote object's stub in the registry
+            Registry registry = LocateRegistry.createRegistry(30280);
+>>>>>>> Stashed changes
             registry.rebind("ClassIDs", stub);
 
             System.err.println("Server Setup Complete.");
@@ -46,16 +64,5 @@ public class StevensClassServer implements ClassIDs
             e.printStackTrace();
         }
     }
-    private static ArrayList<ClassInfo> getList()throws FileNotFoundException{
-		ArrayList<ClassInfo> list = new ArrayList<>();
-		File classList = new File("ClassInfo.txt");
-		Scanner s = new Scanner(classList);
 
-		while(s.hasNext()){
-			ClassInfo newClass = new ClassInfo(s.nextLine(), Integer.parseInt(s.nextLine()), s.nextLine(), s.nextLine());
-			list.add(newClass);
-		}
-		s.close();
-		return list;
-	}
 }

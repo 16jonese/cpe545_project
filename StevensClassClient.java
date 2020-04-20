@@ -17,7 +17,11 @@ public class StevensClassClient {
 	    String type = args[1];
 
 		try {
+<<<<<<< Updated upstream
 		    Registry registry = LocateRegistry.getRegistry(host, 3232);
+=======
+		    Registry registry = LocateRegistry.getRegistry(host);
+>>>>>>> Stashed changes
 		    ClassIDs stub = (ClassIDs) registry.lookup("ClassIDs");
 		    List<ClassInfo> response = stub.searchClass(type);
 		    for(ClassInfo classes : response){
