@@ -1,12 +1,10 @@
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
-import java.net.InetAddress;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,9 @@ public class StevensClassServer implements ClassIDs
 {
     static ArrayList<ClassInfo> classList;
 
-    public StevensClassServer() {}
+    public StevensClassServer() {
+
+    }
 
     public List<ClassInfo> searchClass(String id) {
         id = id.toLowerCase();
@@ -37,9 +37,8 @@ public class StevensClassServer implements ClassIDs
             ClassIDs stub = (ClassIDs) UnicastRemoteObject.exportObject(obj, 0);
 
             // Bind the remote object's stub in the registry
-            Registry registry = LocateRegistry.createRegistry(30280);
+            Registry registry = LocateRegistry.createRegistry(3232);
             registry.rebind("ClassIDs", stub);
-
             System.err.println("Server Setup Complete.");
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
