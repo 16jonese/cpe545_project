@@ -1,3 +1,4 @@
+import java.rmi.Naming;
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
 import java.rmi.registry.LocateRegistry;
@@ -13,10 +14,9 @@ public class StevensClassClient {
 		 			return;
 	    String host = args[0];
 	    String type = args[1];
-
+        String port = args[2];
 		try {
-		    Registry registry = LocateRegistry.getRegistry(host,3232);
-		    ClassIDs stub = (ClassIDs) (registry.lookup("ClassIDs"));
+		    ClassIDs stub = (ClassIDs) (Naming.lookup("//"+ host +":" + port + "/ClassIDs"));
 		    List<ClassInfo> response = stub.searchClass(type);
 		    for(ClassInfo classes : response){
 				System.out.println("Class id: " + classes.getClassId());

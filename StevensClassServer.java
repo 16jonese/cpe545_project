@@ -37,8 +37,9 @@ public class StevensClassServer implements ClassIDs
             ClassIDs stub = (ClassIDs) UnicastRemoteObject.exportObject(obj, 0);
 
             // Bind the remote object's stub in the registry
-            Registry registry = LocateRegistry.createRegistry(3232);
+            Registry registry = LocateRegistry.getRegistry();
             registry.rebind("ClassIDs", stub);
+            System.out.println(registry);
             System.err.println("Server Setup Complete.");
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
